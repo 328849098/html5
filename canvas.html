@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+input{position:absolute;left:0;top:0;}
+</style>
+</head>
+<body>
+<input type="button" value="清空画布" id="clearMap">
+<canvas id="myCanvas" width="800" height="800"></canvas>
+
+<script>
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+
+    <!-- 直线 -->
+    //cxt.lineWidth="3";
+    cxt.moveTo(0,0);
+    cxt.lineTo(100,100);
+    cxt.stroke();
+
+    <!-- 实心三角形 -->
+    cxt.beginPath();
+    cxt.fillStyle="#f00";
+    cxt.moveTo(125,125);
+    cxt.lineTo(150,125);
+    cxt.lineTo(125,150);
+    cxt.closePath();
+    cxt.fill();
+
+    <!-- 空心三角形 -->
+    cxt.beginPath();
+    cxt.strokeStyle="#f00";
+    cxt.moveTo(160,160);
+    cxt.lineTo(200,160);
+    cxt.lineTo(160,200);
+    cxt.closePath();
+    cxt.stroke();
+
+    <!-- 实心矩形 -->
+    cxt.fillStyle="#f00";
+    cxt.fillRect(200,20,100,100);
+
+    <!-- 空心矩形 -->
+    cxt.strokeStyle="#f00";
+    //cxt.lineWidth="6";
+    cxt.strokeRect(310,20,100,100);
+
+    <!-- 实心圆形 -->
+    cxt.fillStyle="#f00";
+    cxt.beginPath();
+    cxt.arc(100,200,50,0,Math.PI*2,true);
+    cxt.closePath();
+    cxt.fill();
+
+    <!-- 圆弧 -->
+    for(var i=0;i<15;i++){
+        cxt.strokeStyle="#f00";
+        cxt.lineWidth="1";
+        cxt.beginPath();
+        cxt.arc(300,200,50,0,Math.PI*3/2,true);   //以3点钟为起点
+        //cxt.closePath();
+        cxt.stroke();
+    }
+
+    <!-- 清空画布 -->
+    var oClearMap = document.getElementById("clearMap");
+    oClearMap.onclick=function () {
+        cxt.clearRect(0,0,300,800);    //x,y,width,height
+    }
+</script>
+</body>
+</html>

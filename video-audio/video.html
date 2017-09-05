@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video width="320" height="240" controls="controls" onmouseover="this.play()" onmouseout="this.pause()" autobuffer="true">
+    <source src="../music/movie.mp4" type="video/mp4">
+    <source src="../music/movie.webm">
+    <source src="../music/movie.mp4" type="video/mp4">
+
+    <object data="*.swf">              <!-- flash -->
+        <a href="*.mp4">download</a>    <!-- 下载 -->
+    </object>
+</video>
+
+<script>
+
+/* 相关属性
+1）autobuffer="true"   缓冲      使用了autoplay则忽略
+2）autoplay            自动播放
+3）buffered            只读      返回一个TimeRanges对象，确认浏览器已经缓存了文件
+4）controls            控制条
+5）currentSrc          只读      返回URL/空字符串
+6）currentTime         获取或设置当前播放位置，返回值为时间，单位为秒
+7）defaultPlaybackRate 默认播放速率
+8）duration            当前媒体的持续时间 s
+9）ended               是否播放结束
+10）error               无错返回null
+    MEDIA_ERR_ABORTED(1):获取资源异常
+    MEDIA_ERR_NETWORK(2):网络错误
+    MEDIA_ERR_DECODE(3):解码错误
+    MEDIA_ERR_SRC_NOT_SUPPORTED(4):媒体格式不被支持
+11）initialTime          最早的可用于回放的位置  s
+12）loop                 循环
+13）muted                true|false     是否开启静音
+14）networkState         返回网络状态
+    NETWORK_EMPTY(0) - 音频/视频尚未初始化
+    NETWORK_IDLE(1) - 加载完成，网络空闲
+    NETWORK_LOADING(2) - 加载中
+    NETWORK_NO_SOURCE(3) - 不支持编码格式，加载失败
+15）pause                true|false     是否暂停
+16）playbackRate         播放速率
+17）played               已播放的时间范围
+    xx.length        已播放的时间段
+    start            已播放的时间段的开始时间
+    end              已播放的时间段的结束时间
+18）preload              是否预加载
+    none             不预加载
+    metadata         部分预加载
+    auto             全部预加载
+19）readyState           返回当前播放位置的就绪状态
+    0 = HAVE_NOTHING - 没有有效资源
+    1 = HAVE_METADATA - 有且加载中，但没有加载到数据播放
+    2 = HAVE_CURRENT_DATA - 有数据，但不够播放
+    3 = HAVE_FUTURE_DATA - 有数据，可播放
+    4 = HAVE_ENOUGH_DATA - 可播放，边加载边播
+20）seekable             可请求
+21）seeking              true|false      正在|停止请求数据
+22）src                  可与poster连用   poster用于指定一张替换图片，如果媒体数据无效，则显示该图片
+23）volume               音量 0~1        如果同时使用了muted，则此属性忽略
+*/
+checkVideo();
+
+function checkVideo() {
+    var myVideo=document.createElement("video");
+    console.log(myVideo.canPlayType);
+    if(myVideo.canPlayType){
+        if(""!=myVideo.canPlayType("video/mp4;codecs='avc1.4D401E, mp4a.40.2")){
+            document.write("支持h264。<br>");
+        }
+        if(""!=myVideo.canPlayType("video/ogg;codecs='theora, vorbis")){
+            document.write("支持vp8。<br>");
+        }
+        if(""!=myVideo.canPlayType("video/webm;codecs='vp8.0, vorbis")){
+            document.write("支持theora。<br>");
+        }
+    }else{
+        document.write("不支持要检测的视频格式。");
+    }
+}
+
+/* 方法
+ 1）canPlayType(type)
+ probable 确定支持
+ maybe    可能支持
+ 空字符串  不支持
+ 2）load            重置并重载
+ */
+
+/* 相关事件
+ 1）
+ */
+</script>
+</body>
+</html>

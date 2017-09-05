@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+*{padding:0;margin:0;}
+.box ul{width:300px;height:300px;background:#88c;display:flex;}
+.box ul li{list-style:none;flex:0 1 50px;}
+.box ul li:nth-of-type(2){flex-basis:20px;}
+</style>
+</head>
+<body>
+<!-- Flex布局
+
+flex:flex-grow flex-shrink flex-basis|auto|initial|inherit;    //扩展 收缩 初始长度 。
+    默认：flex:0 1 auto;
+    快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+
+flex-direction: row|row-reverse|column|column-reverse|initial|inherit;
+flex-flow: flex-direction flex-wrap|initial|inherit;
+flex-wrap: nowrap|wrap|wrap-reverse|initial|inherit;
+
+justify-content:flex-start | flex-end | center | space-between | space-around;
+align-items:flex-start | flex-end | center | baseline | stretch;   //默认值stretch,如果项目未设置高度或设为auto，将占满整个容器的高度。
+align-content:flex-start | flex-end | center | space-between | space-around | stretch;   //默认值stretch,轴线占满整个交叉轴。
+
+order:<integer>;
+align-self:auto | flex-start | flex-end | center | baseline | stretch;
+
+-->
+<div class="box">
+    <ul>
+        <li style="background:#f00;">1</li>
+        <li>2</li>
+        <li style="background:#0f0;">3</li>
+        <li style="background:#00f;">4</li>
+    </ul>
+</div>
+</body>
+</html>

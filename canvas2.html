@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+
+<script>
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+
+    //二次贝塞尔曲线
+    cxt.beginPath();
+    cxt.moveTo(20,20);    //开始点
+    cxt.quadraticCurveTo(20,100,200,20);    //控制点,结束点
+    //cxt.closePath();
+    cxt.stroke();
+
+    //三次贝塞尔曲线
+    cxt.beginPath();
+    cxt.moveTo(220,20);    //开始点
+    cxt.bezierCurveTo(220,100,400,100,400,20);    //控制点1,控制点2,结束点
+    //cxt.closePath();
+    cxt.stroke();
+
+</script>
+</body>
+</html>

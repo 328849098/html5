@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+
+<script>
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+
+    //1)保存与恢复canvas状态
+    cxt.save();    //保存到堆（stack）中
+    cxt.restore();   //从堆中取出，恢复状态的设置
+
+    //2)移动 translate(x,y);
+    //3)旋转 rotate(angle)
+    //4)缩放 scale(x,y)
+    /*5)矩阵变换 transform
+        1.公式：
+        cxt.transform = (m11,m12,m21,m22,dx,dy);
+        x = (m11)x+(m21)y+dx      取奇
+        y = (m12)x+(m22)y+dy      取偶
+
+         移动 translate(x,y) =
+                 cxt.transform(0,1,1,0,dx,dy);  //y=y+dy  (dx,dy)为原点
+                 或 cxt.transform(1,0,0,1,dx,dy);  //x=x+dx
+
+         缩放 scale(x,y) =
+                 cxt.transform(m11,0,0,m22,0,0);  //x=m11x y=m22y
+                 或 cxt.transform(0,m12,m21,0,0,0);  //x=m12x  y=m21y
+
+         旋转 rotate(angle) =
+                cxt.transform(cos,sin,-sin,cos,0,0);  //x=x*cos-y*sin   y=x*sin+y*cos
+        2.例：
+        cxt.transform = (0.95,0,0,0.95,30,30);
+        相等 cxt.translate(30,30);    cxt.scale(0.95,0.95);
+    */
+
+    //6)重置再变换 cxt.setTransform(m11,m12,m21,m22,dx,dy);
+
+
+</script>
+</body>
+</html>

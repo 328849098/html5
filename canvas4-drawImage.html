@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var cxt=c.getContext("2d");
+
+var img=new Image();
+img.onload=function () {
+    //cxt.drawImage(img,0,0);
+    cxt.drawImage(img,50,50,400,400,0,0,400,400);
+    cxt.font="italic 60px Arial Black";
+    cxt.shadowOffsetX=3;
+    cxt.shadowOffsetY=3;
+    cxt.shadowBlur=2;
+    cxt.shadowColor="rgba(0,0,0,0.7)";
+    cxt.fillStyle="#fff";
+    cxt.fillText("COOL",50,165);
+}
+img.src="images/det.jpg";
+
+/*
+剪切图像 - img,sx,sy,swidth,sheight,dx,dy,dwidth,dheight
+sx,sy：被切割区域的起始位置
+swidth,sheight:被切下来的宽度和高度
+dx,dy：被切割下来的源图像要放置到目标canvas的起始坐标
+dwidth,dheight：被切割下来的源图像要放置到目标canvas并显示的宽度和高度
+*/
+
+
+</script>
+</body>
+</html>

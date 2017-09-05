@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<!-- autocomplete    datalist    optgroup begin  -->
+<!-- datalist 不能使用 optgroup -->
+<form autocomplete="on" id="form1">
+    <input type="text" list="urlList">
+    <datalist id="urlList" style="display:none;">
+        <option value="www.sina.com.cn">新浪</option>
+        <option value="www.baidu.com">百度</option>
+    </datalist>
+
+    <select>
+        <optgroup label="华北">
+            <option value="北京1">北京</option>
+            <option value="河南2">河南</option>
+            <option value="山西3">山西</option>
+        </optgroup>
+        <optgroup label="华南">
+            <option value="湖南">湖南</option>
+            <option value="贵州">贵州</option>
+            <option value="重庆">重庆</option>
+        </optgroup>
+
+    </select>
+</form>
+<!-- autocomplete    datalist    optgroup end  -->
+
+
+
+
+<!-- autofocus 获得焦点 begin -->
+<form id="form2">
+    <input type="search" id="s" autofocus>
+    <input type="submit" value="提交">
+</form>
+<script>
+if(!("autofocus" in document.createElement("input"))){
+    document.getElementById("s").onfocus();
+}
+</script>
+<!-- autofocus 获得焦点 end -->
+
+
+<!-- form   "id"    id可以从属多个form，用空格分开 begin -->
+<input type="text" form="form1 form2">
+<!-- form   "id"    id可以从属多个form，用空格分开 end -->
+</body>
+</html>

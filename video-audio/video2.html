@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video width="320" height="240" controls="controls" id="myVideo" poster="../images/det.jpg" preload>
+    <source src="../music/movie.mp4" type="video/mp4" media="only screen and (min-device-width: 568px)">
+    <source src="../music/movie.webm">
+
+    <object data="*.swf">              <!-- flash -->
+        <a href="*.mp4">download</a>    <!-- 下载 -->
+    </object>
+</video>
+
+<script>
+
+/*
+played               已播放的时间范围
+    xx.length        已播放的时间段
+    start            已播放的时间段的开始时间
+    end              已播放的时间段的结束时间
+poster               video没有资源时显示图片
+*/
+
+var ranges=document.getElementById("myVideo").played;
+for(var i=0;i<ranges.length;i++){
+    var start=ranges.start(i);
+    var end=ranges.end(i);
+    alert("从"+start+"开始播放到"+end+"结束。");
+}
+
+</script>
+</body>
+</html>

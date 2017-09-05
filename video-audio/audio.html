@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="../music/song.mp3">
+</audio>
+<script>
+//支持 mp3 ogg wav
+checkAudio();
+
+function checkAudio() {
+    var myAudio=document.createElement("audio");
+    if(myAudio.canPlayType){
+        if(""!=myAudio.canPlayType("audio/mpeg")){
+            document.write("支持mp3。<br>");
+        }
+        if(""!=myAudio.canPlayType("audio/ogg;codecs='vorbis")){
+            document.write("支持ogg。<br>");
+        }
+        if(""!=myAudio.canPlayType("audio/mp4;codecs='mp4a.40.5'")){
+            document.write("支持aac。<br>");
+        }
+    }else{
+        document.write("不支持要检测的音频格式。");
+    }
+}
+</script>
+</body>
+</html>
